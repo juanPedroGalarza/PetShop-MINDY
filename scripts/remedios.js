@@ -14,10 +14,10 @@ async function renderPage() {
     printCards(articulosFiltrados)
 }
 function pintarOfertaRandom(articulos) {
-    let random = Math.floor(Math.random() * articulos.length)
-    let articulo = articulos[random]
+    let articulosOferta = articulos.filter(articulo => articulo.stock < 3)
+    let random = Math.floor(Math.random() * articulosOferta.length)
+    let articulo = articulosOferta[random]
     let divOferta = document.querySelector(".oferta-del-dia")
-    console.log(divOferta)
     let cardOferta = document.createElement("div")
     cardOferta.className = "card-oferta d-flex flex-row flex-wrap align-items-center card"
     cardOferta.innerHTML = 
@@ -25,14 +25,14 @@ function pintarOfertaRandom(articulos) {
     <div class="border-0 p-0 col-12 col-lg-6">
         <div class="card-header">
             <div class="card-title">
-                <p>${articulo.nombre}</p>
+                <p class="titulo-oferta">${articulo.nombre}</p>
             </div>
         </div>
         <div class="card-body">
-            <p class="card-text">$${articulo.precio}</p>
+            <p class="card-text precio-oferta text-dark">$${articulo.precio}</p>
         </div>
         <div class="card-footer">
-            <p class="card-text">Recomendado para tu mascota</p>
+            <p class="card-text descripcion-oferta text-dark">Recomendado para tu mascota</p>
         </div>
     </div>`
     divOferta.appendChild(cardOferta)
@@ -62,5 +62,4 @@ function printCards(arrayData) {
         cardsContainer.appendChild(newCard)
         });
     }
-
 renderPage()

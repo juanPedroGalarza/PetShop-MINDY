@@ -63,10 +63,6 @@ textarea{
     margin-left:2rem;
   }
   
-  body{
-    height:100000px;
-  }
-  
   .burguer{
     background-color:yellow;
     width:100%;
@@ -86,7 +82,7 @@ textarea{
     background-color:green;
     justify-content:center;
     align-items:center;
-    position: absolute;
+    position: relative;
     width: 100%;
     z-index: 10;
   }
@@ -116,7 +112,7 @@ textarea{
     flex-direction:column;
     align-items: flex-end;
     position: fixed;
-    top: 25%;
+    top: 5%;
     right: 5%;
     width: 90%;
     z-index: 5;
@@ -133,7 +129,7 @@ textarea{
   .cart-size{
     width:2.5rem;
     height:2.5rem;
-    background-color:red;
+    background-color:#a4a4a4;
     height: 100%;
     border-radius:100%;
     display:flex;
@@ -146,7 +142,6 @@ textarea{
   }
   
   .carrito-content{
-    background-color:#ccc;
     margin-top:10px;
     z-index: 5;
   }
@@ -233,18 +228,20 @@ align-self: center;
 
   
   @media (min-width:450px){
-  
-    .carrito-container{
-      top:15%
+
+    .header{
+      height: 150px;
     }
   
+    .carrito-container{
+      top:5%
+    }
     .cart-size{
       width:4rem;
       height:4rem;
     }
   
     .carrito-content{
-      background-color:#ccc;
       width:85%;
       margin: auto;
       margin-top:30px
@@ -271,7 +268,7 @@ align-self: center;
       justify-content:space-evenly;
       padding:0.5rem 0;
       align-items:center;
-      position: absolute;
+      position: relative;
       width: 100%;
       z-index: 10;
     }
@@ -286,14 +283,15 @@ align-self: center;
     }
   
     .carrito-container{
-      top: 25%;
+      top: 15%;
     }
   
 }
   
 @media (min-width:1024px) {
 .carrito-container{
-    top:35%;
+    top:15%;
+    z-index: 15;
 }
 
 .carrito-content{
@@ -320,3 +318,34 @@ h1{
     margin-left:2rem;
     }
 }
+.card-oferta{
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+.titulo-oferta{
+    color: black;
+    font-size: large;
+    font-weight: 600;
+}
+
+.title-container{
+    background-image: url(/assets/img/perrito-enfermo.jpg);
+    height: 23vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+.titulo-tienda{
+    text-shadow: 3px 3px 5px rgb(255, 255, 255);
+}
+
+.title-container2{
+    background-image: url(/assets/img/gatito-jugando.jpg);
+    height: 23vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}    
