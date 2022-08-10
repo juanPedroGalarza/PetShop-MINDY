@@ -14,10 +14,10 @@ async function renderPage() {
     printCards(articulosFiltrados)
 }
 function pintarOfertaRandom(articulos) {
-    let random = Math.floor(Math.random() * articulos.length)
-    let articulo = articulos[random]
+    let articulosOferta = articulos.filter(articulo => articulo.stock < 3)
+    let random = Math.floor(Math.random() * articulosOferta.length)
+    let articulo = articulosOferta[random]
     let divOferta = document.querySelector(".oferta-del-dia")
-    console.log(divOferta)
     let cardOferta = document.createElement("div")
     cardOferta.className = "card-oferta d-flex flex-row flex-wrap align-items-center card"
     cardOferta.innerHTML = 
