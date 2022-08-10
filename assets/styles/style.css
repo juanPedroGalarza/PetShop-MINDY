@@ -154,7 +154,7 @@ textarea{
   
     .carrito-container{
       top:5%
-  
+    }
     .cart-size{
       width:4rem;
       height:4rem;
@@ -259,3 +259,12 @@ h1{
 .titulo-tienda{
     text-shadow: 3px 3px 5px rgb(255, 255, 255);
 }
+
+.title-container2{
+    background-image: url(/assets/img/gatito-jugando.jpg);
+    height: 23vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}    
