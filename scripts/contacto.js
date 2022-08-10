@@ -13,6 +13,7 @@ function printResultado(){
     console.log(mascotaCheckeada)
     resultadoContainer.innerHTML = ''
     let resultado = document.createElement('div')
+    resultado.className = "resultadoContacto"
     resultado.innerHTML = `<p>Nombre y Apellido: ${nombre.value}<p>
          <p>Teléfono: ${telefono.value}<p>
          <p>Mascota: ${mascotaCheckeada}<p>

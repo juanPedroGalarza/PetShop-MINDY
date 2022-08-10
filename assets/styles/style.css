@@ -19,6 +19,21 @@ align-self: center;
 z-index: 1;
 }
 
+
+.resultadoContacto{
+    margin-top: 5%;
+    padding: 10px;
+    border: solid 2px;
+}
+
+textarea{
+    resize: none;
+    width: 80%;
+}
+
+.botonContacto{
+    width:30% ;
+}
 *{
     margin: 0;
     padding: 0;
