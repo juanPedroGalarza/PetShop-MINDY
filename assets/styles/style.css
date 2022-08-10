@@ -19,7 +19,6 @@ align-self: center;
 z-index: 1;
 }
 
-
 .resultadoContacto{
     margin-top: 5%;
     padding: 10px;
@@ -63,10 +62,6 @@ textarea{
     margin-left:2rem;
   }
   
-  body{
-    height:100000px;
-  }
-  
   .burguer{
     background-color:yellow;
     width:100%;
@@ -86,7 +81,7 @@ textarea{
     background-color:green;
     justify-content:center;
     align-items:center;
-    position: absolute;
+    position: relative;
     width: 100%;
     z-index: 10;
   }
@@ -116,7 +111,7 @@ textarea{
     flex-direction:column;
     align-items: flex-end;
     position: fixed;
-    top: 25%;
+    top: 5%;
     right: 5%;
     width: 90%;
     z-index: 5;
@@ -133,7 +128,7 @@ textarea{
   .cart-size{
     width:2.5rem;
     height:2.5rem;
-    background-color:red;
+    background-color:#a4a4a4;
     height: 100%;
     border-radius:100%;
     display:flex;
@@ -146,15 +141,18 @@ textarea{
   }
   
   .carrito-content{
-    background-color:#ccc;
     margin-top:10px;
     z-index: 5;
   }
   
   @media (min-width:450px){
+
+    .header{
+      height: 150px;
+    }
   
     .carrito-container{
-      top:15%
+      top:5%
     }
   
     .cart-size{
@@ -163,7 +161,6 @@ textarea{
     }
   
     .carrito-content{
-      background-color:#ccc;
       width:85%;
       margin: auto;
       margin-top:30px
@@ -190,7 +187,7 @@ textarea{
       justify-content:space-evenly;
       padding:0.5rem 0;
       align-items:center;
-      position: absolute;
+      position: relative;
       width: 100%;
       z-index: 10;
     }
@@ -205,14 +202,15 @@ textarea{
     }
   
     .carrito-container{
-      top: 25%;
+      top: 15%;
     }
   
 }
   
 @media (min-width:1024px) {
 .carrito-container{
-    top:35%;
+    top:15%;
+    z-index: 15;
 }
 
 .carrito-content{
