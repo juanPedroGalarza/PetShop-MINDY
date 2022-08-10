@@ -15,6 +15,7 @@ async function renderPage(){
     let articulos = await getDataArticulos(url)
     let articulosFiltrados = articulos.filter( articulo => articulo.tipo == "Juguete")
     printCards(articulosFiltrados)
+    pintarOfertaRandom(articulosFiltrados)
 }
 function pintarOfertaRandom(articulos) {
     let random = Math.floor(Math.random() * articulos.length)
