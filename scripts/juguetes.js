@@ -29,14 +29,14 @@ function pintarOfertaRandom(articulos) {
     <div class="border-0 p-0 col-12 col-lg-6">
         <div class="card-header">
             <div class="card-title">
-                <p>${articulo.nombre}</p>
+                <p class="titulo-oferta">${articulo.nombre}</p>
             </div>
         </div>
         <div class="card-body">
-            <p class="card-text">$${articulo.precio}</p>
+            <p class="precio-oferta text-dark card-text">$${articulo.precio}</p>
         </div>
         <div class="card-footer">
-            <p class="card-text">Recomendado para tu mascota</p>
+            <p class="card-text descripcion-oferta text-dark">Recomendado para tu mascota</p>
         </div>
     </div>`
     divOferta.appendChild(cardOferta)
