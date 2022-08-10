@@ -19,6 +19,7 @@ align-self: center;
 z-index: 1;
 }
 
+
 .resultadoContacto{
     margin-top: 5%;
     padding: 10px;
@@ -153,7 +154,6 @@ textarea{
   
     .carrito-container{
       top:5%
-    }
   
     .cart-size{
       width:4rem;
@@ -236,4 +236,26 @@ h1{
     width:auto;
     margin-left:2rem;
     }
+}
+.card-oferta{
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+.titulo-oferta{
+    color: black;
+    font-size: large;
+    font-weight: 600;
+}
+
+.title-container{
+    background-image: url(/assets/img/perrito-enfermo.jpg);
+    height: 23vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+.titulo-tienda{
+    text-shadow: 3px 3px 5px rgb(255, 255, 255);
 }
