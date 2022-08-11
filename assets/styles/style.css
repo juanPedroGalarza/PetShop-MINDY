@@ -332,6 +332,8 @@ h1{
     width:auto;
     margin-left:2rem;
     }
+
+
 }
 
 @media (max-width:700px) {
@@ -361,7 +363,22 @@ columns: 150px auto;
 }
 }
 
+@media (max-width:800px){
+    .title-container2, .title-container{
+        background-position-y:-150px  ;
+        width: 100%;
+   }
+}
 
+@media (max-width:500px){
+    .title-container2{
+        background-position-y:-50px  ;
+    }
+    
+    .title-container{
+        background-position-y:-50px ;
+    }
+}
 
 .card-oferta{
     margin-top: 70px;
@@ -392,7 +409,7 @@ columns: 150px auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-size: cover;
+    background-size:cover;
 }    
 
 .filtros-container{
