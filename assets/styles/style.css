@@ -23,7 +23,17 @@ z-index: 1;
 .resultadoContacto{
     margin-top: 5%;
     padding: 10px;
-    border: solid 2px;
+    background: rgb(231,255,140);
+  background: linear-gradient(0deg, rgba(231,255,140,1) 0%, rgba(255,255,255,1) 100%);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: 0;
+  border-bottom: 2px solid #7ecb20;
+  color: rgb(36, 36, 36);
+  padding-top: 5px;
+  padding-left: 10px;
+  margin-bottom: 15px;
+
 }
 
 textarea{
