@@ -521,8 +521,11 @@ a[href="#"]{
   background-color: #e7ff8ccc;
   width: 100%;
   justify-content: center;
+  overflow-y: scroll;
 }
-
+.modal-content{
+  height: 80vh;
+}
 .carrito-element{
   background-color: #e7ff8c;
   border: #7ecb20 solid 1px;

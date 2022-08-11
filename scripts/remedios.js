@@ -71,8 +71,6 @@ function printMessageNotFound(){
     caja.innerHTML = '<h4>Producto no encontrado, actualice los filtros.</h4>';
     return caja
 }
-
-
 function filterByText(arrData, query){
     let arrFilteredOut = arrData.filter( title => title.nombre.toLowerCase().includes(query.value.toLowerCase()));
     return arrFilteredOut;
@@ -94,19 +92,12 @@ function eventos(arrData){
         let filtradoRango = filterByRange(arrData, filtroRange);
         let filtradoTexto = filterByText(filtradoRango, filtroTexto);
         printCards(filtradoTexto);
-        // if (filtradoTexto.length === 0) {
-        //     printCards(printMessageNotFound())
-        // }
-        
     });
 
-    filtroTexto.addEventListener('input', ( e ) => {
+    filtroTexto.addEventListener('input', () => {
         let filtradoRango = filterByRange(arrData, filtroRange);
         let filtradoTexto = filterByText(filtradoRango, filtroTexto);
         printCards(filtradoTexto);
-        // if (filtradoTexto.length === 0) {
-        //     printCards(printMessageNotFound())
-        // }
     });
 }
 
@@ -120,12 +111,24 @@ function eventosBotones(productos) {
     
             containerModal.appendChild(modal(datosProductos))
          })
-    })
+        })
 }
 
-function modal(productos){
+function modal(producto){
     
     let modal = document.createElement("div")
+    modal.id = "modal"
+    let cantidadContainer = document.createElement("select")
+    for (let i = 0; i < producto.stock; i++) {
+        let opcion = document.createElement("option")
+        if (i == 0) {
+            opcion.selected = "true"
+        }
+        opcion.value = `${i + 1}`
+        opcion.innerHTML = `${i + 1}`
+        opcion.name = "cantidad"
+        cantidadContainer.appendChild(opcion)
+    }
     modal.className= "modal-card d-flex m-auto align-items-center modalPosition"
    
         modal.innerHTML = `
@@ -133,26 +136,60 @@ function modal(productos){
         
               <div class="modal-header d-flex text-center" >
                 <h5 class="modal-tittle text-dark  fs-2 container-fluid" id="modalTittle">Detalles del producto</h5>
-                <button type="button" class="btn-close m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close m-3 close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body d-flex flex-column">
-                <img src=${productos.imagen} class="container-sm  m-auto d-flex justify-content-center imgModal">
+                <img src=${producto.imagen} class="container-sm  m-auto d-flex justify-content-center imgModal">
                 <div class="d-flex flex-column align-items-center">
-                <h4 class="mt-4 m-3 fs-3">${productos.nombre}</h4>
+                <h4 class="mt-4 m-3 fs-3">${producto.nombre}</h4>
                 <dl>
-                  <dd class="text-dark m-3 fs-4">${productos.descripcion}</dd>
-                  <dd class="text-dark fs-2 d-flex justify-content-center">Costo: $${productos.precio}</dd>
+                  <dd class="text-dark m-3 fs-4">${producto.descripcion}</dd>
+                  <dd class="text-dark fs-2 d-flex justify-content-center">Costo: $${producto.precio}</dd>
                 </dl>
+                
                 </div>
               </div>
               <div class="modal-footer d-flex justify-content-center">
-                <button type="button" class="btn btn-secondary m-3" data-bs-dismiss="modal">Cerrar</button>
-                <button href="#" class="btn btn-danger m-3">Añadir al carrito</button>
+              <select name="select" id="cantidadStock" required="true">
+              ${cantidadContainer.innerHTML}
+              </select>
+                <button type="button" class="btn btn-secundary close-modal m-3">Cerrar</button>
+                <button type="button" class="${producto._id} btn btn-comprar close-modal m-3">Añadir al carrito</button>
               </div>
               </div>
             </div>
           
         </div>`
+    // let i = productos
+    modal.addEventListener("click", e => {
+        if (e.target.classList.contains("close-modal")) {
+            if (e.target.classList.contains("btn-comprar")) {
+                let carrito = JSON.parse(localStorage.getItem("carrito"))
+                carrito ??= [[],[]]
+                let articulos = carrito[0]
+                let cantidades = carrito[1]
+                let id = e.target.classList.values().next().value
+                console.log(id)
+                if (articulos.some(articulo => articulo._id == id)) {
+                    console.log("bien")
+                    let articulo = articulos.find(art => art._id == id)
+                    let indexProducto = articulos.indexOf(articulo)
+                    articulos = articulos.filter(art => art != articulo)
+                    cantidades = cantidades.filter((n, indx) => {
+                        return indx != indexProducto
+                    })
+                    console.log(articulo)
+                }
+                let cantidad = document.getElementById("cantidadStock").value
+                articulos.push(producto)
+                cantidades.push(cantidad)
+                carrito[0] = articulos
+                carrito[1] = cantidades
+                localStorage.setItem("carrito",JSON.stringify(carrito))
+            }
+            document.getElementById("modal-fachero").removeChild(document.getElementById("modal"))
+        }
+    })
     return modal
 }
 
