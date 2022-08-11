@@ -14,7 +14,8 @@ function printResultado(){
     resultadoContainer.innerHTML = ''
     let resultado = document.createElement('div')
     resultado.className = "resultadoContacto"
-    resultado.innerHTML = `<p>Nombre y Apellido: ${nombre.value}<p>
+    resultado.innerHTML = `<p>Recibimos tu mensaje con los siguientes datos:<p>
+    <p>Nombre y Apellido: ${nombre.value}<p>
          <p>Teléfono: ${telefono.value}<p>
          <p>Mascota: ${mascotaCheckeada}<p>
          <p>Comentario: ${comentario.value}<p>`
