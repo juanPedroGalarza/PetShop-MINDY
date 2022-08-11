@@ -181,22 +181,6 @@ textarea{
     background-color: #e7ff8c;
 }
 
-
-
-.form{
-    width: 15% !important; 
-}
-
-
-.remediosBody{
-    width: 85% !important;
-}
-
-.juguetesBody{
-  width: 85% !important;
-}
-
-
 .tituloCard{
     width: 40vh;
 
@@ -271,14 +255,6 @@ height: 200px;
     
   }
 
-  @media (min-width:375px){
-
-    .imgModal{
-      width: 300px!important;
-      height: 300px!important;
-    }
-
-  }
   
   @media (min-width:768px){
   
@@ -319,10 +295,7 @@ height: 200px;
       top: 15%;
     }
 
-    .imgModal{
-      width: 700px!important;
-      height: 450px!important;
-    }
+
 
 }
 
@@ -409,7 +382,18 @@ columns: 150px auto;
 }
 
 @media (min-width:1440px){
+  .modal-body{
+    display: flex;
+   
+  }
 
+  .imgModal{
+    width: 50%;
+  }
+
+  .modal-content{
+    width: 50%!important;
+  }
 }
 
 .card-oferta{
@@ -525,25 +509,16 @@ a[href="#"]{
   position: fixed;
   top: 0;
   left:0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   z-index: 1000;
-  background-color: rgba(30, 30, 30, .7);
   padding: 20px;
+  background-color: rgba(78, 78, 78, .8);
 }
 .modal-card .modal-content{
   display: flex;
   background-color: #e7ff8ccc;
-
-}
-
-.modal-content{
   width: 100%;
-  display: flex;
   justify-content: center;
 }
 
-.modal-body{
-  display: flex;
-  
-}
