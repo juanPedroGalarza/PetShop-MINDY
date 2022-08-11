@@ -5,12 +5,19 @@ let enviar = document.getElementById("enviar")
 let selectorMascotas = document.querySelectorAll("input[type = 'radio']")
 let arrayMascotas = Array.from(selectorMascotas)
 let resultadoContainer = document.getElementById("resultadoContainer")
+let form = document.querySelector(".form-contact")
 
 
 function printResultado(){
     let checkeada = arrayMascotas.filter(mascota => mascota.checked)
     let mascotaCheckeada = checkeada.map(mascota => mascota.value)
-    console.log(mascotaCheckeada)
+    if (nombre.value === '' || telefono.value === '' || mascotaCheckeada.length === 0 || comentario.value === '') {
+    resultadoContainer.innerHTML = ''
+    let resultado = document.createElement('div')
+    resultado.className = "resultadoContacto"
+    resultado.innerHTML = 'Por favor complete todos los campos'  
+    resultadoContainer.appendChild(resultado)  
+    }else{
     resultadoContainer.innerHTML = ''
     let resultado = document.createElement('div')
     resultado.className = "resultadoContacto"
@@ -20,11 +27,14 @@ function printResultado(){
          <p>Mascota: ${mascotaCheckeada}<p>
          <p>Comentario: ${comentario.value}<p>`
     resultadoContainer.appendChild(resultado)
-}
+}}
 
 
 enviar.addEventListener("click",()=>{
     printResultado()
+    event.preventDefault()
+    form.reset()
+    resultadoContainer.removeChild(resultado)
 })
 
 
