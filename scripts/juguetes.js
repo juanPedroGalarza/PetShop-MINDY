@@ -82,7 +82,6 @@ function printMessageNotFound(){
     return caja
 }
 
-console.log(printMessageNotFound())
 
 function filterByText(arrData, query){
     let arrFilteredOut = arrData.filter( title => title.nombre.toLowerCase().includes(query.value.toLowerCase()));

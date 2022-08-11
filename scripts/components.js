@@ -2,7 +2,6 @@ const menu = document.getElementById('burguer');
 const nav = document.getElementById('nav');
 const carrito = document.getElementById('carrito');
 const listaCarrito = document.getElementById('listaCarrito');
-console.log(listaCarrito)
 
 let contador = 0
 menu.addEventListener('click', () =>{
