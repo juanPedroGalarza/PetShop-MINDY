@@ -21,8 +21,8 @@ function pintarOfertaRandom(articulos) {
     let cardOferta = document.createElement("div")
     cardOferta.className = "card-oferta d-flex flex-row flex-wrap align-items-center card"
     cardOferta.innerHTML = 
-    `<img class="col-12 col-lg-6 img-details" src="${articulo.imagen}" alt="EventImage">
-    <div class="border-0 p-0 col-12 col-lg-6">
+    `<img class="col-12 col-md-6 img-details" src="${articulo.imagen}" alt="EventImage">
+    <div class="border-0 p-0 col-12 col-md-6">
         <div class="card-header">
             <div class="card-title">
                 <p class="titulo-oferta">${articulo.nombre}</p>
@@ -43,21 +43,20 @@ function printCards(arrayData) {
     cardsContainer.innerHTML= ""
     arrayData.forEach(productos => {
     let newCard = document.createElement("div")
-    newCard.className = "cards border border-1  p-3 m-4  shadow justify-content-center"
-    newCard.style.width = "20rem"
-    newCard.style.height = "30rem"
+    newCard.className = "border border-1 p-3 shadow justify-content-center card-articulo"
     newCard.innerHTML=`
-        <div class="card shadow" style="width: 100%; height: 28rem;">
+        <div class="card shadow">
             
-            <img src="${productos.imagen}" style="height: 250px; width: 100%" >
-               
+            <img src="${productos.imagen}" >
+            <div>
             <div class="card-body " >
-                    <h5 class="card-title text-center text-dark">${productos.nombre}</h5>
+                    <p class="card-title text-center text-dark">${productos.nombre}</p>
                     
             </div>
             <div class="card-body d-flex justify-content-around align-items-center align-self-center">
                     <p  class="card-link text-dark">Precio: $${productos.precio}</p>  
                     <button  class="d-flex  mb-3 btn btn-secondary">Comprar</button>
+            </div>
         </div>`
         cardsContainer.appendChild(newCard)
         });

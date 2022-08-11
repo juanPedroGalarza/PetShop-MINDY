@@ -451,3 +451,24 @@ footer{
 .form-contact button{
   background-color:#7ecb20;
 }
+.card-articulo{
+  width: 290px;
+  height: 500px;
+  font-size: 15px;
+  font-weight: bold;
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card-articulo >.card{
+  height: 95%;
+  width: 95%;
+}
+.card-articulo img{
+  height: 50%;
+}
+.card-articulo .card > div{
+  height: 50%;
+}
