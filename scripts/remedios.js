@@ -51,11 +51,11 @@ function printCards(arrayData) {
             <img src="${producto.imagen}" >
             <div>
             <div class="card-body " >
-                    <p class="card-title text-center text-dark">${productos.nombre}</p>
+                    <p class="card-title text-center text-dark">${producto.nombre}</p>
             </div>
             <div class="card-body d-flex justify-content-around align-items-center align-self-center">
-                   <p  class="card-link text-dark">$${producto.precio}</p>
-            <button  class="d-flex  mb-3 btn btn-secondary botonDetalles" id="${productos._id}">Comprar</button>
+                <p  class="card-link text-dark">$${producto.precio}</p>
+            <button  class="d-flex  mb-3 btn btn-secondary botonDetalles" id="${producto._id}">Comprar</button>
         </div>`
         cardsContainer.appendChild(newCard)
         });
