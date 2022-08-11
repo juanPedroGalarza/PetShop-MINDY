@@ -12,6 +12,7 @@ async function renderPage() {
     let articulosFiltrados = articulos.filter(articulo=> articulo.tipo == "Medicamento")
     pintarOfertaRandom(articulosFiltrados)
     printCards(articulosFiltrados)
+    eventos(articulosFiltrados)
 }
 function pintarOfertaRandom(articulos) {
     let articulosOferta = articulos.filter(articulo => articulo.stock < 3)
@@ -39,26 +40,79 @@ function pintarOfertaRandom(articulos) {
 }
 
 function printCards(arrayData) {
-    const cardsContainer = document.getElementById("cardsContainer")
     cardsContainer.innerHTML= ""
-    arrayData.forEach(productos => {
+    arrayData.forEach(producto => {
     let newCard = document.createElement("div")
     newCard.className = "border border-1 p-3 shadow justify-content-center card-articulo"
     newCard.innerHTML=`
         <div class="card shadow">
             
-            <img src="${productos.imagen}" >
+            <img src="${producto.imagen}" >
             <div>
             <div class="card-body " >
-                    <p class="card-title text-center text-dark">${productos.nombre}</p>
+                    <p class="card-title text-center text-dark">${producto.nombre}</p>
                     
             </div>
             <div class="card-body d-flex justify-content-around align-items-center align-self-center">
-                    <p  class="card-link text-dark">Precio: $${productos.precio}</p>  
+                    <p  class="card-link text-dark">Precio: $${producto.precio}</p>  
                     <button  class="d-flex  mb-3 btn btn-secondary">Comprar</button>
             </div>
         </div>`
         cardsContainer.appendChild(newCard)
         });
+        if( cardsContainer.innerHTML == '' ){
+            cardsContainer.appendChild(printMessageNotFound())
+        }
     }
+    
+    
+renderPage()
+
+const filtroTexto = document.getElementById('buscador');
+const filtroRange = document.getElementById('rango-precio-max');
+
+function printMessageNotFound(){
+    let caja = document.createElement('div');
+    caja.innerHTML = '<h4>Producto no encontrado, actualice los filtros.</h4>';
+    return caja
+}
+
+console.log(printMessageNotFound())
+
+function filterByText(arrData, query){
+    let arrFilteredOut = arrData.filter( title => title.nombre.toLowerCase().includes(query.value.toLowerCase()));
+    return arrFilteredOut;
+}
+
+function filterByRange(arrData, query){
+    let listaPrecios = [];
+    arrData.forEach( e => listaPrecios.push(e.precio) );
+    let precioMax = Math.max(...listaPrecios);
+    let precioMin = Math.min(...listaPrecios);
+    filtroRange.max = precioMax;
+    filtroRange.min = precioMin;
+    let filtro = arrData.filter( d => d.precio >= query.value ? d : false );
+    return filtro;
+}
+
+function eventos(arrData){
+    filtroRange.addEventListener('input', e => { 
+        let filtradoRango = filterByRange(arrData, filtroRange);
+        let filtradoTexto = filterByText(filtradoRango, filtroTexto);
+        printCards(filtradoTexto);
+        // if (filtradoTexto.length === 0) {
+        //     printCards(printMessageNotFound())
+        // }
+        
+    });
+
+    filtroTexto.addEventListener('input', ( e ) => {
+        let filtradoRango = filterByRange(arrData, filtroRange);
+        let filtradoTexto = filterByText(filtradoRango, filtroTexto);
+        printCards(filtradoTexto);
+        // if (filtradoTexto.length === 0) {
+        //     printCards(printMessageNotFound())
+        // }
+    });
+}
 renderPage()
