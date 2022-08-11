@@ -109,15 +109,14 @@ function eventosBotones(productos) {
            
            let datosProductos =productos.find( producto => producto._id === e.target.id)
     
-            containerModal.appendChild(modal(datosProductos,productos))
+            containerModal.appendChild(modal(datosProductos))
          })
         })
 }
 
-function modal(producto,productos){
+function modal(producto){
     
     let modal = document.createElement("div")
-    modal.className = "modal-card"
     modal.id = "modal"
     let cantidadContainer = document.createElement("select")
     for (let i = 0; i < producto.stock; i++) {
@@ -130,32 +129,36 @@ function modal(producto,productos){
         opcion.name = "cantidad"
         cantidadContainer.appendChild(opcion)
     }
+    modal.className= "modal-card d-flex m-auto align-items-center modalPosition"
+   
         modal.innerHTML = `
-        <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-tittle text-dark" id="modalTittle">Detalles del producto</h5>
-                <button type="button" class="${producto._id} btn-close close-modal"></button>
+        <div class="modal-content container-sm  m-auto"  >
+        
+              <div class="modal-header d-flex text-center" >
+                <h5 class="modal-tittle text-dark  fs-2 container-fluid" id="modalTittle">Detalles del producto</h5>
+                <button type="button" class="btn-close m-3 close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
-                <img src=${producto.imagen}  style="width: 100%; height: 300px">
-                <h4 class="mt-4">${producto.nombre}</h4>
+              <div class="modal-body d-flex flex-column">
+                <img src=${producto.imagen} class="container-sm  m-auto d-flex justify-content-center imgModal">
+                <div class="d-flex flex-column align-items-center">
+                <h4 class="mt-4 m-3 fs-3">${producto.nombre}</h4>
                 <dl>
-
-                  <dd class="text-dark">${producto.descripcion}</dd>
-                  <dd class="text-dark">Costo: $${producto.precio}</dd>
+                  <dd class="text-dark m-3 fs-4">${producto.descripcion}</dd>
+                  <dd class="text-dark fs-2 d-flex justify-content-center">Costo: $${producto.precio}</dd>
                 </dl>
-                <div>
-                <select name="select" id="cantidadStock" required="true">
-                ${cantidadContainer.innerHTML}
-                </select>
+                
                 </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secundary close-modal">Cerrar</button>
-                <button type="button" class="${producto._id} btn btn-comprar close-modal">Añadir al carrito</button>
+              <div class="modal-footer d-flex justify-content-center">
+              <select name="select" id="cantidadStock" required="true">
+              ${cantidadContainer.innerHTML}
+              </select>
+                <button type="button" class="btn btn-secundary close-modal m-3">Cerrar</button>
+                <button type="button" class="${producto._id} btn btn-comprar close-modal m-3">Añadir al carrito</button>
+              </div>
               </div>
             </div>
-          </div>
+          
         </div>`
     // let i = productos
     modal.addEventListener("click", e => {
