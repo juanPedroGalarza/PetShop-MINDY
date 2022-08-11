@@ -181,22 +181,6 @@ textarea{
     background-color: #e7ff8c;
 }
 
-
-
-.form{
-    width: 15% !important; 
-}
-
-
-.remediosBody{
-    width: 85% !important;
-}
-
-.juguetesBody{
-  width: 85% !important;
-}
-
-
 .tituloCard{
     width: 40vh;
 
@@ -267,9 +251,12 @@ height: 200px;
       margin: auto;
       margin-top:30px
     }
+
+    
   }
+
   
-  @media (min-width:769px){
+  @media (min-width:768px){
   
     .header{
       background-color:#e7ff8c;
@@ -307,6 +294,8 @@ height: 200px;
     .carrito-container{
       top: 15%;
     }
+
+
 
 }
 
@@ -391,6 +380,21 @@ columns: 150px auto;
         background-position-y:-150px ;
         width: 100%;
     }
+}
+
+@media (min-width:1440px){
+  .modal-body{
+    display: flex;
+   
+  }
+
+  .imgModal{
+    width: 50%;
+  }
+
+  .modal-content{
+    width: 50%!important;
+  }
 }
 
 .card-oferta{
@@ -505,16 +509,20 @@ a[href="#"]{
 .modal-card{
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left:0;
+  width: 100vw;
   height: 100vh;
   z-index: 1000;
-  background-color: rgba(30, 30, 30, .7);
   padding: 20px;
+  background-color: rgba(78, 78, 78, .8);
 }
 .modal-card .modal-content{
   display: flex;
   background-color: #e7ff8ccc;
+  width: 100%;
+  justify-content: center;
+}
+
 }
 
 .carrito-element{
@@ -530,3 +538,4 @@ a[href="#"]{
 .img-carrito{
 height: 40px;
 }
+
