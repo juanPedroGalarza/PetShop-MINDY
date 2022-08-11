@@ -267,9 +267,20 @@ height: 200px;
       margin: auto;
       margin-top:30px
     }
+
+    
+  }
+
+  @media (min-width:375px){
+
+    .imgModal{
+      width: 300px!important;
+      height: 300px!important;
+    }
+
   }
   
-  @media (min-width:769px){
+  @media (min-width:768px){
   
     .header{
       background-color:#e7ff8c;
@@ -306,6 +317,11 @@ height: 200px;
   
     .carrito-container{
       top: 15%;
+    }
+
+    .imgModal{
+      width: 700px!important;
+      height: 450px!important;
     }
 
 }
@@ -390,6 +406,10 @@ columns: 150px auto;
         background-position-y:-150px ;
         width: 100%;
     }
+}
+
+@media (min-width:1440px){
+
 }
 
 .card-oferta{
@@ -504,7 +524,7 @@ a[href="#"]{
 .modal-card{
   position: fixed;
   top: 0;
-  left: 0;
+  left:0;
   width: 100%;
   height: 100vh;
   z-index: 1000;
@@ -514,4 +534,16 @@ a[href="#"]{
 .modal-card .modal-content{
   display: flex;
   background-color: #e7ff8ccc;
+
+}
+
+.modal-content{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-body{
+  display: flex;
+  
 }
