@@ -374,7 +374,7 @@ columns: 150px auto;
     .title-container2{
         background-position-y:-50px  ;
     }
-    
+
     .title-container{
         background-position-y:-50px ;
     }
@@ -423,4 +423,31 @@ footer{
     width: 100%;
     background-color:#7ecb20;
     margin: 0px;
+}
+/* contacto */
+.form-contact{
+  max-width: 600px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.perro-contacto{
+  width: 100px;
+  height: 100px;
+}
+.form-contact input,.form-contact textarea{
+  background: rgb(231,255,140);
+  background: linear-gradient(0deg, rgba(231,255,140,1) 0%, rgba(255,255,255,1) 100%);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: 0;
+  border-bottom: 2px solid #7ecb20;
+  color: rgb(36, 36, 36);
+  padding-top: 5px;
+  padding-left: 10px;
+}
+.form-contact input::placeholder,.form-contact textarea::placeholder{
+  color: #7ecb20;
+}
+.form-contact button{
+  background-color:#7ecb20;
 }
