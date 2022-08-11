@@ -382,11 +382,13 @@ columns: 150px auto;
 
 @media (max-width:500px){
     .title-container2{
-        background-position-y:-50px  ;
+        background-position-y: 50px ;
+        width: 100%;
     }
 
     .title-container{
-        background-position-y:-50px ;
+        background-position-y:-150px ;
+        width: 100%;
     }
 }
 
@@ -408,6 +410,8 @@ columns: 150px auto;
     justify-content: center;
     align-items: center;
     background-size: cover;
+    background-position-y:-100px ;
+    width: 80%;
 }
 .titulo-tienda{
     text-shadow: 3px 3px 5px rgb(255, 255, 255);
@@ -420,6 +424,8 @@ columns: 150px auto;
     justify-content: center;
     align-items: center;
     background-size:cover;
+    background-position-y: -100px;
+    width: 80%;
 }    
 
 .filtros-container{
@@ -481,4 +487,9 @@ footer{
 }
 .card-articulo .card > div{
   height: 50%;
+}
+
+a[href="#"]{
+  background-color: #e7ff8c;
+  color: black;
 }
