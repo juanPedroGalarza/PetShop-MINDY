@@ -527,7 +527,7 @@ a[href="#"]{
   overflow-y: scroll;
 }
 .modal-content{
-  height: 80vh;
+  min-height: 80vh;
 }
 .carrito-element{
   background-color: #e7ff8c;
