@@ -36,6 +36,7 @@ function pintarOfertaRandom(articulos) {
         <div class="card-footer">
             <p class="card-text descripcion-oferta text-dark">Recomendado para tu mascota</p>
         </div>
+        <button  class="d-flex mt-3 ms-3 mb-3 btn btn-secondary botonDetalles" id="${articulo._id}">Comprar</button>
     </div>`
     divOferta.appendChild(cardOferta)
 }
