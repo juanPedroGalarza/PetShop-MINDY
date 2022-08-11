@@ -400,7 +400,10 @@ columns: 150px auto;
 .card-oferta{
     margin-top: 70px;
     margin-bottom: 30px;
+    background-color: #e7ff8c;
 }
+
+
 
 .titulo-oferta{
     color: black;
