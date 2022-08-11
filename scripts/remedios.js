@@ -126,29 +126,32 @@ function eventosBotones(productos) {
 function modal(productos){
     
     let modal = document.createElement("div")
-    modal.className= "modal-card"
+    modal.className= "modal-card d-flex  align-items-center modalPosition"
+   
         modal.innerHTML = `
-        <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-tittle text-dark" id="modalTittle">Detalles del producto</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content"  >
+        
+              <div class="modal-header d-flex text-center" >
+                <h5 class="modal-tittle text-dark fs-2 container-fluid" id="modalTittle">Detalles del producto</h5>
+                <button type="button" class="btn-close m-3" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <img src=${productos.imagen}  style="width: 100%; height: 300px">
-                <h4 class="mt-4">${productos.nombre}</h4>
+                <img src=${productos.imagen} class="container-fluid d-flex justify-content-center imgModal" style="width: 600px; height: 400px">
+                <div class="d-flex flex-column align-items-center">
+                <h4 class="mt-4 m-3 fs-2">${productos.nombre}</h4>
                 <dl>
-
-                  <dd class="text-dark">${productos.descripcion}</dd>
-                  <dd class="text-dark">Costo: $${productos.precio}</dd>
+                  <dd class="text-dark m-3">${productos.descripcion}</dd>
+                  <dd class="text-dark fs-3 d-flex justify-content-center">Costo: $${productos.precio}</dd>
                 </dl>
-                <ul></ul>
+                </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button href="#" class="btn btn-danger">Añadir al carrito</button>
+              <div class="modal-footer d-flex justify-content-center">
+                <button type="button" class="btn btn-secondary m-3" data-bs-dismiss="modal">Cerrar</button>
+                <button href="#" class="btn btn-danger m-3">Añadir al carrito</button>
+              </div>
               </div>
             </div>
-          </div>
+          
         </div>`
     return modal
 }
