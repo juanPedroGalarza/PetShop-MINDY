@@ -12,6 +12,8 @@ async function renderPage() {
     let articulosFiltrados = articulos.filter(articulo=> articulo.tipo == "Medicamento")
     pintarOfertaRandom(articulosFiltrados)
     printCards(articulosFiltrados)
+    eventosBotones(articulosFiltrados)
+
 }
 function pintarOfertaRandom(articulos) {
     let articulosOferta = articulos.filter(articulo => articulo.stock < 3)
@@ -51,14 +53,65 @@ function printCards(arrayData) {
             <div>
             <div class="card-body " >
                     <p class="card-title text-center text-dark">${productos.nombre}</p>
-                    
             </div>
             <div class="card-body d-flex justify-content-around align-items-center align-self-center">
-                    <p  class="card-link text-dark">Precio: $${productos.precio}</p>  
-                    <button  class="d-flex  mb-3 btn btn-secondary">Comprar</button>
-            </div>
+                   
+            <button  class="d-flex  mb-3 btn btn-secondary botonDetalles" id="${productos._id}">Detalles</button>
+            <button  class="d-flex  mb-3 btn btn-secondary">Comprar</button>
         </div>`
         cardsContainer.appendChild(newCard)
         });
     }
 renderPage()
+
+
+
+
+
+
+function eventosBotones(productos) {
+    let containerModal = document.getElementById("modal-fachero")
+    let botones =Array.from(document.querySelectorAll(".botonDetalles"));
+        botones.forEach(boton =>{
+        boton.addEventListener("click", (e)=>{
+           
+           let datosProductos =productos.find( producto => producto._id === e.target.id)
+    
+            containerModal.appendChild(modal(datosProductos))
+         })
+    })
+}
+
+function modal(productos){
+    
+        let modal = document.createElement("div")
+        modal.innerHTML = `
+        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-tittle text-dark" id="modalTittle">Detalles del producto</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <img src=${productos.imagen}  style="width: 100%; height: 300px">
+                            <h4 class="mt-4">${productos.nombre}</h4>
+                            <dl>
+                              
+                              <dd class="text-dark">${productos.descripcion}</dd>
+                              <dd class="text-dark">Costo: $${productos.precio}</dd>
+                            </dl>
+                            <ul></ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button href="#" class="btn btn-danger">Añadir al carrito</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>`
+                    return modal
+}
+
+
+ 
+  
+ 
