@@ -16,6 +16,7 @@ async function renderPage(){
     let articulosFiltrados = articulos.filter( articulo => articulo.tipo == "Juguete")
     printCards(articulosFiltrados)
     pintarOfertaRandom(articulosFiltrados)
+    eventos(articulosFiltrados)
 }
 function pintarOfertaRandom(articulos) {
     let articulosOferta = articulos.filter(articulo => articulo.stock < 3)
@@ -63,9 +64,62 @@ function printCards(arrayData) {
         </div>`
         cardsContainer.appendChild(newCard)
         });
+        if( cardsContainer.innerHTML == '' ){
+            cardsContainer.appendChild(printMessageNotFound())
+        }
     }
     
+    
 renderPage()
+
+const filtroTexto = document.getElementById('buscador');
+const filtroRange = document.getElementById('rango-precio-max');
+
+
+function printMessageNotFound(){
+    let caja = document.createElement('div');
+    caja.innerHTML = '<h4>Producto no encontrado, actualice los filtros.</h4>';
+    return caja
+}
+
+console.log(printMessageNotFound())
+
+function filterByText(arrData, query){
+    let arrFilteredOut = arrData.filter( title => title.nombre.toLowerCase().includes(query.value.toLowerCase()));
+    return arrFilteredOut;
+}
+
+function filterByRange(arrData, query){
+    let listaPrecios = [];
+    arrData.forEach( e => listaPrecios.push(e.precio) );
+    let precioMax = Math.max(...listaPrecios);
+    let precioMin = Math.min(...listaPrecios);
+    filtroRange.max = precioMax;
+    filtroRange.min = precioMin;
+    let filtro = arrData.filter( d => d.precio >= query.value ? d : false );
+    return filtro;
+}
+
+function eventos(arrData){
+    filtroRange.addEventListener('input', e => { 
+        let filtradoRango = filterByRange(arrData, filtroRange);
+        let filtradoTexto = filterByText(filtradoRango, filtroTexto);
+        printCards(filtradoTexto);
+        // if (filtradoTexto.length === 0) {
+        //     printCards(printMessageNotFound())
+        // }
+        
+    });
+
+    filtroTexto.addEventListener('input', ( e ) => {
+        let filtradoRango = filterByRange(arrData, filtroRange);
+        let filtradoTexto = filterByText(filtradoRango, filtroTexto);
+        printCards(filtradoTexto);
+        // if (filtradoTexto.length === 0) {
+        //     printCards(printMessageNotFound())
+        // }
+    });
+}
 
 
 
