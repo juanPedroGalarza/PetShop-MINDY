@@ -46,9 +46,9 @@ textarea{
   }
   
   header{
-    background-color:red;
+    background-color:#e7ff8c;
     display:flex;
-    flex-direction:row;
+    flex-direction:column;
     align-items:center;
     justify-content:center;
   }
@@ -79,7 +79,7 @@ textarea{
   .nav{
     display: flex;
     flex-direction:column;
-    background-color:green;
+    background-color:#7ecb20;
     justify-content:center;
     align-items:center;
     position: relative;
@@ -129,7 +129,7 @@ textarea{
   .cart-size{
     width:2.5rem;
     height:2.5rem;
-    background-color:#a4a4a4;
+    background-color:#7ecb20;
     height: 100%;
     border-radius:100%;
     display:flex;
@@ -151,12 +151,12 @@ textarea{
   .main{
     width: 100%;
     height: 100%;
-    background-color: brown;
+    background-color:#e7ff8c;
 }
 
 .footer{
     width: 100%;
-    background-color: brown;
+    background-color:#7ecb20;
     margin: 0px;
 }
 
@@ -168,7 +168,7 @@ textarea{
 
 .div{
     width: 100%;
-    background-color: brown;
+    background-color: #e7ff8c;
 }
 
 
@@ -201,12 +201,10 @@ textarea{
 .indexcard {
     
     z-index: 55;
-
-
     min-height: 30%;
     width: 18rem ;
-    border: solid black 3px;
-    border-radius: 25px;
+    border: solid #7ecb20 1px;
+    background-color: #e7ff8c;
     align-self: center;
     position: absolute;
     
@@ -251,7 +249,7 @@ align-self: center;
   @media (min-width:769px){
   
     .header{
-      background-color:red;
+      background-color:#e7ff8c;
       height:160px
     }
     
@@ -264,7 +262,7 @@ align-self: center;
     .nav{
       display: flex;
       flex-direction:row;
-      background-color:green;
+      background-color:#b2ff59;
       justify-content:space-evenly;
       padding:0.5rem 0;
       align-items:center;
@@ -274,8 +272,9 @@ align-self: center;
     }
   
     .nav-item{
-      border: 1px solid gray;
+      border: 1px solid #7ecb20;
       width:15%;
+      background-color: #7ecb20;
     }
   
     .burguer{
@@ -310,6 +309,7 @@ align-self: center;
 h1{
     font-size: 4rem;
     font-weight: bold;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
     
 .header img{
@@ -349,3 +349,13 @@ h1{
     align-items: center;
     background-size: cover;
 }    
+
+.filtros-container{
+    background-color: #e7ff8c;
+}
+
+footer{
+    width: 100%;
+    background-color:#7ecb20;
+    margin: 0px;
+}
