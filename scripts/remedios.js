@@ -84,31 +84,32 @@ function eventosBotones(productos) {
 
 function modal(productos){
     
-        let modal = document.createElement("div")
+    let modal = document.createElement("div")
+    modal.className= "modal-card"
         modal.innerHTML = `
         <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-tittle text-dark" id="modalTittle">Detalles del producto</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            <img src=${productos.imagen}  style="width: 100%; height: 300px">
-                            <h4 class="mt-4">${productos.nombre}</h4>
-                            <dl>
-                              
-                              <dd class="text-dark">${productos.descripcion}</dd>
-                              <dd class="text-dark">Costo: $${productos.precio}</dd>
-                            </dl>
-                            <ul></ul>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button href="#" class="btn btn-danger">Añadir al carrito</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>`
-                    return modal
+              <div class="modal-header">
+                <h5 class="modal-tittle text-dark" id="modalTittle">Detalles del producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src=${productos.imagen}  style="width: 100%; height: 300px">
+                <h4 class="mt-4">${productos.nombre}</h4>
+                <dl>
+
+                  <dd class="text-dark">${productos.descripcion}</dd>
+                  <dd class="text-dark">Costo: $${productos.precio}</dd>
+                </dl>
+                <ul></ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button href="#" class="btn btn-danger">Añadir al carrito</button>
+              </div>
+            </div>
+          </div>
+        </div>`
+    return modal
 }
 
 
