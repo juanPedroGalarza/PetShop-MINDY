@@ -414,6 +414,9 @@ columns: 150px auto;
 
 .filtros-container{
     background-color: #e7ff8c;
+    position: sticky;
+    top: 0px;
+    z-index: 100;
 }
 
 footer{
