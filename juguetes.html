@@ -16,7 +16,9 @@
     <h1>MINDY</h1>
   </header>
   <div class="burguer" id="burguer">
-    <img class="img-burguer" src="./assets/img/menu.png" alt="">
+    <div class="burguer-container">
+      <img class="img-burguer" src="./assets/img/menu.png" alt="">
+    </div>
   </div>
   <nav class="nav hidden2" id="nav">
     <div class="nav-item"><a class="nav-link" href="./index.html">Home</a></div>
@@ -46,20 +48,25 @@
 
   <main class="w-100 d-flex flex-wrap h-100" id="modal-fachero">
     <form action="#" class="filtros-container d-flex flex-column col-12 col-lg-3">
-      <div class = "filtros-container d-flex flex-column w-100">
+      <div class = "filtros-container d-flex flex-column w-100 gap-5 my-5">
+        <div class="d-flex flex-column w-75 m-auto fs-4">
           <label for="buscardor">Buscar</label>
-          <input type="text" id="buscador" step="1">
-          <label for="rango-precio">Precio Máximo:</label>
-          <input type="range" id="rango-precio-max" value="100">
+          <input type="text" class="ps-3" id="buscador" step="1">
+        </div>
+        <div class="d-flex flex-column w-75 m-auto fs-4">
+          <label for="rango-precio">Precio Minimo:</label>
+          <input type="range" id="rango-precio-max" value="0">
+        </div>
       </div>
       </form>
     <div class="d-flex flex-column col-12 col-lg-9 align-items-center">
-        <div class="d-flex flex-wrap justify-content-around flex-column flex-lg-row align-content-center">
-            <div class="title-container2"><h1 class="text-center text-light">Juguetes</h1></div>
+        <div class="d-flex flex-wrap justify-content-around flex-column flex-lg-row align-content-center mt-5 w-100">
+            <div class="title-container2 m-auto w-75">
+              <h1 class="text-center text-light">Juguetes</h1></div>
             <div class="oferta-del-dia col-12 col-md-10 col-lg-9 d-flex justify-content-center"></div>
         </div>
        
-        <div class="justify-content-center d-flex flex-column flex-md-row flex-wrap align-items-center gap-4 align-content-center mt-4 mb-4" id="cardsContainer">
+        <div class="justify-content-center d-flex flex-wrap align-items-center gap-5 align-content-center my-4 w-100" id="cardsContainer">
             
     </div>
 </main>
