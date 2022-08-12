@@ -15,6 +15,45 @@ align-self: center;
 z-index: 1;
 }
 
+.carrito-element p{
+  font-size: 1.5rem;
+  display: flex;
+  height:100%;
+  width: 100%;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  margin:auto;
+  padding:10px 20px;
+}
+
+.carrito-element{
+  width:250px;
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+  justify-content:center;
+  align-items:center;
+}
+
+.clear-car{
+  width: 250px;
+  height:50px;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.img-carrito{
+  width:75%;
+  height: 300px !important;
+  padding: 10px;
+  margin:auto;
+}
+
+
 
 .resultadoContacto{
     margin-top: 5%;
@@ -408,6 +447,39 @@ columns: 150px auto;
   .carrito-elemento{
     width:30%;
     height: 700px !important;
+  }
+
+  .carrito-element p{
+    font-size: 1.5rem;
+    display: flex;
+    height:20%;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    margin:auto;
+    padding:0 20px;
+  }
+
+  .carrito-element{
+    width:650px;
+    padding:0 15px;
+    flex-wrap: nowrap;
+  }
+
+  .clear-car{
+    width: 650px;
+    height:50px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+
+  .img-carrito{
+    width:200px;
+    height:200px !important;
+    padding: 10px;
   }
 
 
