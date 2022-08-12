@@ -25,7 +25,7 @@ function pintarOfertaRandom(articulos) {
     let articulo = articulosOferta[random]
     let divOferta = document.querySelector(".oferta-del-dia")
     let cardOferta = document.createElement("div")
-    cardOferta.className = "card-oferta d-flex flex-row flex-wrap align-items-center card"
+    cardOferta.className = "card-oferta d-flex w-100 flex-row flex-wrap align-items-center card"
     cardOferta.innerHTML = 
     `<img class="col-12 col-lg-6 img-details" src="${articulo.imagen}" alt="EventImage">
     <div class="border-0 p-0 col-12 col-lg-6">
@@ -49,18 +49,18 @@ function printCards(arrayData) {
     cardsContainer.innerHTML= ""
     arrayData.forEach(producto => {
     let newCard = document.createElement("div")
-    newCard.className = "border border-1 p-3 shadow justify-content-center card-articulo"
+    newCard.className = "justify-content-center card-articulo"
     newCard.innerHTML=`
-    <div class="card shadow">
+    <div class="card w-100 h-100">
             
     <img src="${producto.imagen}" >
     <div>
-    <div class="card-body " >
-            <p class="card-title text-center text-dark">${producto.nombre}</p>
+    <div class="card-body h-50" >
+            <p class="card-title text-center text-dark fs-5">${producto.nombre}</p>
     </div>
-    <div class="card-body d-flex justify-content-around align-items-center align-self-center">
-        <p  class="card-link text-dark">$${producto.precio}</p>
-    <button  class="d-flex  mb-3 btn btn-secondary botonDetalles" id="${producto._id}">Comprar</button>
+    <div class="d-flex align-items-center justify-content-around">
+        <p  class="card-link text-dark fs-6">$${producto.precio}</p>
+    <button  class="d-flex btn btn-secondary botonDetalles fs-6" id="${producto._id}">Comprar</button>
 </div>`
         cardsContainer.appendChild(newCard)
         });
