@@ -13,13 +13,16 @@ function printCarrito() {
     let cantidades = carritoData[1]
     productos.forEach((producto, index) => {
         let articulo = document.createElement("div")
-        articulo.className = "carrito-element d-flex justify-content-between align-content-center col-sm-10 col-lg-8"
+        articulo.className = "carrito-elemento d-flex justify-content-between align-content-center col-sm-10 col-lg-8"
         articulo.innerHTML =
-        `<img src="${producto.imagen}" alt="imagen-producto" class="img-carrito">
-        <p>${producto.nombre}</p>
-        <p>${producto.descripcion}</p>
-        <p>$${producto.precio}</p>
-        <button type="button" class="${producto._id} btn-close" aria-label="Close"></button>`
+        `<img src="${producto.imagen}" alt="imagen-producto" class="imgn-carrito">
+        <p class="nombre-carrito">${producto.nombre}</p>
+        <p class="descripcion-carrito">${producto.descripcion}</p>
+        <p class="precio-carrito">$${producto.precio}</p>
+        <div class = "botones-carrito">
+        <button type="button" class="${producto._id} btn-close cerrar-carrito" aria-label="Close"></button>
+        <button type="button" class="${producto._id} btn comprar-carrito" aria-label="Comprar">Comprar</button>
+        <div>`
         articulo.addEventListener("click", e => {
           if (e.target.classList.contains("btn-close")) {
             productos = productos.filter(prod => prod._id != e.target.classList
