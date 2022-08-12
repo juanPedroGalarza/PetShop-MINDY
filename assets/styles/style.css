@@ -56,7 +56,7 @@ textarea{
   }
   
   header{
-    background-color:#e7ff8c;
+    background: linear-gradient(45deg,#AFF1DA,#F9EA8F);
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -64,7 +64,8 @@ textarea{
   }
   
   .header{
-    height: 100px
+    height: 100px;
+    background: linear-gradient(45deg,#AFF1DA,#F9EA8F);
   }
   
   .header img{
