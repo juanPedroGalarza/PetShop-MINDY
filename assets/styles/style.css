@@ -344,8 +344,6 @@ h1{
   z-index: 0;
   min-height: 30%;
   max-width: 40rem ;
-  border: solid black 3px;
-  border-radius: 25px;
   align-self: center;
   display: flex;
 
@@ -419,7 +417,6 @@ columns: 150px auto;
     justify-content: center;
     align-items: center;
     background-size: cover;
-    background-position-y:-100px ;
     width: 80%;
 }
 .titulo-tienda{
@@ -433,7 +430,6 @@ columns: 150px auto;
     justify-content: center;
     align-items: center;
     background-size:cover;
-    background-position-y: -100px;
     width: 80%;
 }    
 
@@ -547,4 +543,9 @@ height: 40px;
 .imgModal{
   max-height: 40vh;
   object-fit: contain;
+}
+
+.close-modal{
+  border: #7ecb20 solid 1px;
+  background-color: #e7ff8c;
 }
