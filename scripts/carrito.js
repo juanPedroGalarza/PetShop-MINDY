@@ -6,7 +6,8 @@ menu.addEventListener('click', () => {
   
 
 function printCarrito() {
-    const carrito = document.getElementById("carrito")
+  const carrito = document.getElementById("carrito")
+  carrito.innerHTML=""
     let carritoData = JSON.parse(localStorage.getItem("carrito"))
     carritoData ??= [[], []]
     let productos = carritoData[0]
@@ -34,14 +35,32 @@ function printCarrito() {
             if (productos.length < 2) {
               localStorage.removeItem("carrito")
             }
-            e.target.parentElement.remove()
+            printCarrito()
           }
         })
         carrito.appendChild(articulo)
     })
     if (carrito.innerHTML == "") {
         carrito.innerHTML = "<h3>No hay nada en el carrito</h3>"
+    } else {
+      let total = sacartTotalCarrito(productos, cantidades)
+      carrito.appendChild(total)
     }
 }
-
+function sacartTotalCarrito(productos,cantidades) {
+  let total = productos.reduce((precio, producto,indx) => {
+    return precio + (producto.precio * cantidades[indx])
+  }, 0)
+  let totalElement = document.createElement("div")
+  totalElement.className = "d-flex justify-content-between align-content-center col-sm-10 col-lg-8"
+  totalElement.innerHTML = `<span class="comprarTotal">Comprar<span><h2>${total}</h2>`
+  totalElement.addEventListener("click", e => {
+    if (e.target.className == "comprarTotal") {
+      alert("gracias por comprar :)")
+      localStorage.removeItem("carrito")
+      printCarrito()
+    }
+  })
+  return totalElement
+}
 printCarrito()
