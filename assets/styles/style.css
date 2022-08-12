@@ -268,6 +268,21 @@ height: 200px;
     .header{
       height:160px
     }
+
+    #carrito{
+      display: flex;flex-direction:row;
+      flex-wrap: wrap;
+      justify-content:space-evenly;
+    }
+
+    .carrito-elemento{
+      width:45%;
+      height: 700px !important;
+    }
+
+    .imgn-carrito{
+      height:200px !important;
+    }
     
     .header img{
       height: 100%;
@@ -382,8 +397,19 @@ columns: 150px auto;
 @media (min-width:1440px){
   .modal-body{
     display: flex;
-   
   }
+
+  #carrito{
+    display: flex;flex-direction:row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+  }
+
+  .carrito-elemento{
+    width:30%;
+    height: 700px !important;
+  }
+
 
   .imgModal{
     width: 50%;

@@ -14,15 +14,15 @@ function printCarrito() {
     let cantidades = carritoData[1]
     productos.forEach((producto, index) => {
         let articulo = document.createElement("div")
-        articulo.className = "carrito-elemento d-flex justify-content-between align-content-center col-sm-10 col-lg-8"
+        articulo.className = "carrito-elemento d-flex justify-content-around align-content-center col-sm-10 col-lg-8 flex-wrap "
         articulo.innerHTML =
-        `<img src="${producto.imagen}" alt="imagen-producto" class="imgn-carrito">
-        <p class="nombre-carrito">${producto.nombre}</p>
+        `<img src="${producto.imagen}" alt="imagen-producto" class="imgn-carrito w-50">
+        <p class="nombre-carrito w-50">${producto.nombre}</p>
         <p class="descripcion-carrito">${producto.descripcion}</p>
         <p class="precio-carrito">$${producto.precio}</p>
-        <div class = "botones-carrito">
-        <button type="button" class="${producto._id} btn-close cerrar-carrito" aria-label="Close"></button>
-        <button type="button" class="${producto._id} btn comprar-carrito" aria-label="Comprar">Comprar</button>
+        <div class = "botones-carrito d-flex flex-row h-25 my-3 w-75">
+          <button type="button" class="${producto._id} btn-close cerrar-carrito" aria-label="Close"></button>
+          <button type="button" class="${producto._id} btn comprar-carrito" aria-label="Comprar">Comprar</button>
         <div>`
         articulo.addEventListener("click", e => {
           if (e.target.classList.contains("btn-close")) {
@@ -32,9 +32,6 @@ function printCarrito() {
             carritoData[0] = productos
             carritoData[1] = cantidades
             localStorage.setItem("carrito",JSON.stringify(carritoData))
-            if (productos.length < 2) {
-              localStorage.removeItem("carrito")
-            }
             printCarrito()
           }
         })
@@ -52,8 +49,8 @@ function sacartTotalCarrito(productos,cantidades) {
     return precio + (producto.precio * cantidades[indx])
   }, 0)
   let totalElement = document.createElement("div")
-  totalElement.className = "d-flex justify-content-between align-content-center col-sm-10 col-lg-8"
-  totalElement.innerHTML = `<span class="comprarTotal">Comprar<span><h2>${total}</h2>`
+  totalElement.className = "d-flex justify-content-between align-content-center col-sm-10 col-lg-8 w-100"
+  totalElement.innerHTML = `<span class="comprarTotal p-4">Comprar<span><h2>${total}</h2>`
   totalElement.addEventListener("click", e => {
     if (e.target.className == "comprarTotal") {
       alert("gracias por comprar :)")
