@@ -1,7 +1,5 @@
 .index-card{
     z-index: 2;
-    background-color: aquamarine;
-    color: blue;
     min-height: 30%;
     width: 30% ;
     border: solid black 3px;
@@ -9,8 +7,6 @@
     align-self: center;
     position: relative;
     bottom: -50%
-    
-
 }
 
 .carousel{
@@ -25,8 +21,7 @@ z-index: 1;
     padding: 10px;
     background: rgb(231,255,140);
   background: linear-gradient(0deg, rgba(231,255,140,1) 0%, rgba(255,255,255,1) 100%);
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-radius:5px;
   border: 0;
   border-bottom: 2px solid #7ecb20;
   color: rgb(36, 36, 36);
@@ -44,6 +39,7 @@ textarea{
 .botonContacto{
     width:30% ;
 }
+
 *{
     margin: 0;
     padding: 0;
@@ -65,7 +61,17 @@ textarea{
   
   .header{
     height: 100px;
-    background: linear-gradient(45deg,#AFF1DA,#F9EA8F);
+    background: transparent;
+  }
+
+  .burguer-container{
+    background-color: #b3cc5c;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height:75%;
+    width:25px;
+    border-radius:3px;
   }
   
   .header img{
@@ -75,7 +81,7 @@ textarea{
   }
   
   .burguer{
-    background-color:yellow;
+    background-color:#e7ff8c;
     width:100%;
     height:2rem;
     display: flex;
@@ -90,10 +96,10 @@ textarea{
   .nav{
     display: flex;
     flex-direction:column;
-    background-color:#7ecb20;
+    background-color: #e7ff8c;
     justify-content:center;
     align-items:center;
-    position: relative;
+    position: absolute;
     width: 100%;
     z-index: 10;
   }
@@ -104,7 +110,7 @@ textarea{
   }
   
   .nav-link{
-    color: white;
+    color: black;
     width:100%;
     text-align: center;
   }
@@ -260,7 +266,6 @@ height: 200px;
   @media (min-width:768px){
   
     .header{
-      background-color:#e7ff8c;
       height:160px
     }
     
@@ -273,7 +278,7 @@ height: 200px;
     .nav{
       display: flex;
       flex-direction:row;
-      background-color:#b2ff59;
+      background-color:#e7ff8c;
       justify-content:space-evenly;
       padding:0.5rem 0;
       align-items:center;
@@ -283,9 +288,20 @@ height: 200px;
     }
   
     .nav-item{
-      border: 1px solid #7ecb20;
       width:15%;
-      background-color: #7ecb20;
+      background-color: #b3cc5c;
+      margin: 5px 0;
+    }
+
+    .nav-link{
+      color: black;
+      transition: border 0.5s ease;
+      border: 1px solid transparent;
+    }
+
+    .nav-link:hover{
+      border: 1px solid black;
+      color: black
     }
   
     .burguer{
@@ -363,23 +379,9 @@ columns: 150px auto;
 }
 
 @media (max-width:800px){
-    .title-container2, .title-container{
-        background-position-y:-150px  ;
-        width: 100%;
-   }
+    
 }
 
-@media (max-width:500px){
-    .title-container2{
-        background-position-y: 50px ;
-        width: 100%;
-    }
-
-    .title-container{
-        background-position-y:-150px ;
-        width: 100%;
-    }
-}
 
 @media (min-width:1440px){
   .modal-body{
@@ -430,14 +432,14 @@ columns: 150px auto;
     justify-content: center;
     align-items: center;
     background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 80%;
 }    
 
 .filtros-container{
-    background-color: #e7ff8c;
-    position: sticky;
-    top: 0px;
-    z-index: 100;
+    background-color: #ffffbe;
+    z-index: 5;
 }
 
 footer{
