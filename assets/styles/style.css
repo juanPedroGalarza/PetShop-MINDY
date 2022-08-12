@@ -167,7 +167,7 @@ textarea{
 
 .footer{
     width: 100%;
-    background-color:#7ecb20;
+    background: linear-gradient(45deg,#20BF55,#01BAEF);
     margin: 0px;
 }
 
