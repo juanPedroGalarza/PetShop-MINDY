@@ -13,7 +13,6 @@ async function renderPage() {
     pintarOfertaRandom(articulosFiltrados)
     printCards(articulosFiltrados)
     eventos(articulosFiltrados)
-    eventosBotones(articulosFiltrados)
 }
 function pintarOfertaRandom(articulos) {
     let articulosOferta = articulos.filter(articulo => articulo.stock < 3)
@@ -59,11 +58,12 @@ function printCards(arrayData) {
                 <button  class="d-flex btn btn-secondary botonDetalles fs-6" id="${producto._id}">Comprar</button>
             </div>`
         cardsContainer.appendChild(newCard)
-        });
-        if( cardsContainer.innerHTML == '' ){
-            cardsContainer.appendChild(printMessageNotFound())
-        }
+    });
+    if( cardsContainer.innerHTML == '' ){
+        cardsContainer.appendChild(printMessageNotFound())
     }
+    eventosBotones(arrayData)
+}
 const filtroTexto = document.getElementById('buscador');
 const filtroRange = document.getElementById('rango-precio-max');
 
