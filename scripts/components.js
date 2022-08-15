@@ -11,7 +11,7 @@ carritoImg.addEventListener('click', () => {
   let productos = carrito[0]
   let cantidades = carrito[1]
   let limpiarCarrito = document.createElement("span")
-  limpiarCarrito.className = "clear-car d-flex justify-content-center col-sm-10 col-lg-8"
+  limpiarCarrito.className = "clear-car"
   listaCarrito.innerHTML = ""
   limpiarCarrito.innerHTML = "Limpiar carrito"
   limpiarCarrito.addEventListener("click", e => {
@@ -22,11 +22,11 @@ carritoImg.addEventListener('click', () => {
   listaCarrito.appendChild(limpiarCarrito)
   productos.forEach((producto, index) => {
     let articulo = document.createElement("div")
-    articulo.className = "carrito-element d-flex justify-content-between align-content-center col-sm-10 col-lg-8"
+    articulo.className = "carrito-element"
     articulo.innerHTML =
     `<img src="${producto.imagen}" alt="logo petshop" class="img-carrito">
     <p>${producto.nombre}</p>
-    <p>$${producto.precio}</p>
+    <p class="price">$${producto.precio}/u</p>
     <button type="button" class="${producto._id} btn-close" aria-label="Close"></button>`
     articulo.addEventListener("click", e => {
       if (e.target.classList.contains("btn-close")) {
@@ -44,5 +44,7 @@ carritoImg.addEventListener('click', () => {
     })
     listaCarrito.appendChild(articulo)
   })
+  listaCarrito.parentElement.classList.toggle("carrito-altura")
   listaCarrito.classList.toggle("hidden1")
+
 })
