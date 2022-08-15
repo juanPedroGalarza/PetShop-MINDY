@@ -145,32 +145,32 @@ function modal(producto){
         opcion.name = "cantidad"
         cantidadContainer.appendChild(opcion)
     }
-    modal.className= "modal-card d-flex m-auto align-items-center modalPosition"
+    modal.className= "modal-card d-flex align-items-center modalPosition"
    
         modal.innerHTML = `
-        <div class="modal-content container-sm  m-auto"  >
+        <button type="button" class="btn-close close-modal" aria-label="Close"></button>
+        <div class="modal-content"  >
         
               <div class="modal-header d-flex text-center" >
-                <h5 class="modal-tittle text-dark  fs-2 container-fluid" id="modalTittle">Detalles del producto</h5>
-                <button type="button" class="btn-close m-3 close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="text-modal" id="modalTittle">Detalles del producto</h5>
               </div>
-              <div class="modal-body d-flex flex-column">
-                <img src=${producto.imagen} class="container-sm  m-auto d-flex justify-content-center imgModal">
+              <div class="modal-body">
+                <img src=${producto.imagen} class="imgModal">
                 <div class="d-flex flex-column align-items-center">
-                <h4 class="mt-4 m-3 fs-3">${producto.nombre}</h4>
+                <h4 class="modal-tittle">${producto.nombre}</h4>
                 <dl>
-                  <dd class="text-dark m-3 fs-4">${producto.descripcion}</dd>
-                  <dd class="text-dark fs-2 d-flex justify-content-center">Costo: $${producto.precio}</dd>
+                  <dd class="text-dark text-modal">${producto.descripcion}</dd>
+                  <dd class="text-dark d-flex justify-content-center text-modal">Costo: $${producto.precio}</dd>
                 </dl>
                 
                 </div>
               </div>
-              <div class="modal-footer d-flex justify-content-center">
-              <select name="select" id="cantidadStock" required="true">
+              <div class="modal-footer">
+              <select name="select" id="cantidadStock" required="true"s>
               ${cantidadContainer.innerHTML}
               </select>
-                <button type="button" class="btn btn-secundary close-modal m-3">Cerrar</button>
-                <button type="button" class="${producto._id} btn btn-comprar close-modal m-3">Añadir al carrito</button>
+              <button type="button" class="${producto._id} btn btn-comprar close-modal text-modal">Añadir al carrito</button>
+              <button type="button" class="btn btn-secundary close-modal text-modal">Cerrar</button>
               </div>
               </div>
             </div>
