@@ -17,7 +17,6 @@ async function renderPage(){
     printCards(articulosFiltrados)
     pintarOfertaRandom(articulosFiltrados)
     eventos(articulosFiltrados)
-    eventosBotones(articulosFiltrados)
 }
 function pintarOfertaRandom(articulos) {
     let articulosOferta = articulos.filter(articulo => articulo.stock < 3)
@@ -52,22 +51,22 @@ function printCards(arrayData) {
     newCard.className = "justify-content-center card-articulo"
     newCard.innerHTML=`
     <div class="card w-100 h-100">
-            
-    <img src="${producto.imagen}" >
-    <div>
-    <div class="card-body h-50" >
-            <p class="card-title text-center text-dark fs-5">${producto.nombre}</p>
-    </div>
-    <div class="d-flex align-items-center justify-content-around">
-        <p  class="card-link text-dark fs-6">$${producto.precio}</p>
-    <button  class="d-flex btn btn-secondary botonDetalles fs-6" id="${producto._id}">Comprar</button>
-</div>`
-        cardsContainer.appendChild(newCard)
+        <img src="${producto.imagen}" >
+        <div>
+        <div class="card-body h-50" >
+                <p class="card-title text-center text-dark fs-5">${producto.nombre}</p>
+        </div>
+        <div class="d-flex align-items-center justify-content-around">
+            <p  class="card-link text-dark fs-6">$${producto.precio}</p>
+            <button  class="d-flex btn btn-secondary botonDetalles fs-6" id="${producto._id}">Comprar</button>
+    </div>`
+    cardsContainer.appendChild(newCard)
         });
-        if( cardsContainer.innerHTML == '' ){
+    if( cardsContainer.innerHTML == '' ){
             cardsContainer.appendChild(printMessageNotFound())
-        }
     }
+    eventosBotones(arrayData)
+}
 
 const filtroTexto = document.getElementById('buscador');
 const filtroRange = document.getElementById('rango-precio-max');
