@@ -14,14 +14,13 @@ function printCarrito() {
     let cantidades = carritoData[1]
     productos.forEach((producto, index) => {
         let articulo = document.createElement("div")
-        articulo.className = "carrito-elemento overflow-hidden d-flex justify-content-around align-content-center col-sm-10 col-lg-8 flex-wrap "
+        articulo.className = "carrito-elemento"
         articulo.innerHTML =
-        `<img src="${producto.imagen}" alt="imagen-producto" class="imgn-carrito w-50">
-        <p class="nombre-carrito w-50">${producto.nombre}</p>
-        <p class="descripcion-carrito">${producto.descripcion}</p>
+        `<img src="${producto.imagen}" alt="imagen-producto" class="imgn-carrito">
+        <p class="nombre-carrito">${producto.nombre}</p>
         <p class="precio-carrito">$${producto.precio}</p>
-        <p class="precio-carrito">Cantidades: ${cantidades[index]}</p>
-        <div class = "botones-carrito d-flex flex-row justify-content-center h-25 my-3 w-75">
+        <p class="precio-carrito">Cantidad: ${cantidades[index]}</p>
+        <div class = "botones-carrito">
           <button type="button" class="${producto._id} btn-close cerrar-carrito" aria-label="Close"></button>
         <div>`
         articulo.addEventListener("click", e => {
@@ -49,9 +48,10 @@ function sacartTotalCarrito(productos,cantidades) {
     return precio + (producto.precio * cantidades[indx])
   }, 0)
   let totalElement = document.createElement("div")
-  totalElement.className = "d-flex justify-content-between align-content-center col-sm-10 col-lg-8 w-100"
-  totalElement.innerHTML = `<button class="comprarTotal p-4 btn btn-primary">Comprar</button>
-                            <p class="h-100 d-flex align-items-center fs-4">precio: ${total}$</p>`
+  totalElement.className = "d-flex justify-content-end align-content-center col-sm-10 col-lg-8 w-100 gap-4"
+  totalElement.innerHTML = 
+    `<p class="text-center total-carrito">Total: ${total}$</p>
+    <button class="comprarTotal btn">Comprar</button>`
   totalElement.addEventListener("click", e => {
     if (e.target.classList.contains("comprarTotal")) {
       alert("gracias por comprar :)")
